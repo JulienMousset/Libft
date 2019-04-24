@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmousset <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/08 10:42:50 by jmousset          #+#    #+#             */
-/*   Updated: 2019/04/10 14:47:13 by jmousset         ###   ########.fr       */
+/*   Created: 2019/04/10 13:49:30 by jmousset          #+#    #+#             */
+/*   Updated: 2019/04/23 14:24:15 by jmousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isalnum(int c)
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	if ((c >= 48 && c <= 57) || (c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-		return (1);
+	size_t	i;
+	char	*res;
+
+	i = 0;
+	if (s != NULL && f != NULL)
+	{
+		if (!(res = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1))))
+			return (NULL);
+		while (i < ft_strlen(s))
+		{
+			res[i] = f(s[i]);
+			i++;
+		}
+		res[i] = '\0';
+		return (res);
+	}
 	else
-		return (0);
+		return (NULL);
 }

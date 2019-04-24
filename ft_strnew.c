@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmousset <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/08 10:42:50 by jmousset          #+#    #+#             */
-/*   Updated: 2019/04/10 14:47:13 by jmousset         ###   ########.fr       */
+/*   Created: 2019/04/10 13:45:07 by jmousset          #+#    #+#             */
+/*   Updated: 2019/04/22 15:13:31 by jmousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isalnum(int c)
+char	*ft_strnew(size_t size)
 {
-	if ((c >= 48 && c <= 57) || (c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-		return (1);
-	else
-		return (0);
+	char	*res;
+
+	if (!(res = (char *)malloc(size + 1)))
+		return (NULL);
+	ft_bzero(res, size + 1);
+	return (res);
 }

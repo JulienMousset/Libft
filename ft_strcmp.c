@@ -6,7 +6,7 @@
 /*   By: jmousset <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 11:35:31 by jmousset          #+#    #+#             */
-/*   Updated: 2019/04/08 16:06:00 by jmousset         ###   ########.fr       */
+/*   Updated: 2019/04/10 16:55:14 by jmousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		ft_strcmp(const char *s1, const char *s2)
 	int		i;
 
 	i = 0;
-	while (s1 && s2 && s1[i] == s2[i])
+	while (s1[i] && s2[i] && s1[i] == s2[i])
 		i++;
-	return (s1[i] - s2[i]);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
