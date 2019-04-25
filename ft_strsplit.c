@@ -6,7 +6,7 @@
 /*   By: jmousset <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 13:56:01 by jmousset          #+#    #+#             */
-/*   Updated: 2019/04/24 13:51:13 by jmousset         ###   ########.fr       */
+/*   Updated: 2019/04/25 15:53:30 by jmousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,11 @@ static int	ft_count_words(char const *s, char c)
 		if (s[i] != c)
 		{
 			words++;
-			while (s[i] != c)
+			while (s[i] && s[i] != c)
 				i++;
 		}
-		i++;
+		else
+			i++;
 	}
 	return (words);
 }
@@ -68,11 +69,12 @@ char		**ft_strsplit(char const *s, char c)
 		{
 			if (!(res[j] = ft_copy_words(s + i, c)))
 				return (NULL);
-			while (s[i] != c)
+			while (s[i] && s[i] != c)
 				i++;
 			j++;
 		}
-		i++;
+		else
+			i++;
 	}
 	res[j] = 0;
 	return (res);
