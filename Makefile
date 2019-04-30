@@ -6,7 +6,7 @@
 #    By: jmousset <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/04 16:43:26 by jmousset          #+#    #+#              #
-#    Updated: 2019/04/10 14:42:39 by jmousset         ###   ########.fr        #
+#    Updated: 2019/04/29 16:36:55 by jmousset         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,12 @@ SRCS = ft_memset.c\
 	   ft_lstdel.c\
 	   ft_lstadd.c\
 	   ft_lstiter.c\
-	   ft_lstmap.c
+	   ft_lstmap.c\
+	   ft_swap.c\
+	   ft_range.c\
+	   ft_strlcpy.c\
+	   ft_str_is_lowercase.c\
+	   ft_str_is_uppercase.c
 
 OBJS = $(SRCS:.c=.o)
 

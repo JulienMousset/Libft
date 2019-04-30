@@ -6,7 +6,7 @@
 /*   By: jmousset <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 13:55:21 by jmousset          #+#    #+#             */
-/*   Updated: 2019/04/24 12:00:32 by jmousset         ###   ########.fr       */
+/*   Updated: 2019/04/26 14:37:01 by jmousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ char		*ft_strtrim(char const *s)
 	size_t	size;
 	char	*res;
 
+	if (s == NULL)
+		return (NULL);
 	if (s[ft_start(s)] == '\0')
 	{
 		res = (char*)malloc(sizeof(char));

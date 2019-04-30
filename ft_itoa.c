@@ -6,7 +6,7 @@
 /*   By: jmousset <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 13:56:39 by jmousset          #+#    #+#             */
-/*   Updated: 2019/04/25 15:54:51 by jmousset         ###   ########.fr       */
+/*   Updated: 2019/04/26 18:34:29 by jmousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,50 +14,51 @@
 
 static int		ft_intlen(int n)
 {
-	int				res;
-	unsigned int	n_cpy;
+	int				len;
+	unsigned int	ncpy;
 
-	res = 0;
+	len = 0;
 	if (n == 0)
 		return (1);
 	if (n < 0)
 	{
-		n_cpy = -n;
-		res++;
+		len++;
+		ncpy = -n;
 	}
 	else
-		n_cpy = n;
-	while (n_cpy)
+		ncpy = n;
+	while (n)
 	{
-		n_cpy = n_cpy / 10;
-		res++;
+		len++;
+		n = n / 10;
 	}
-	return (res);
+	return (len);
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
-	int				i;
-	unsigned int	n_cpy;
+	unsigned int	len;
 	char			*res;
+	unsigned int	ncpy;
 
-	i = 0;
-	if (!(res = (char *)malloc(sizeof(char) * (ft_intlen(n) + 1))))
-	return (NULL);
+	len = ft_intlen(n);
+	if (!(res = (char *)malloc(sizeof(char) * (len + 1))))
+		return (NULL);
+	if (n == 0)
+		res[0] = '0';
+	res[len] = '\0';
 	if (n < 0)
 	{
-		res[i++] = '-';
-		n_cpy = -n;
+		res[0] = '-';
+		ncpy = -n;
 	}
 	else
-		n_cpy = n;
-
-	while ((n_cpy /= 10) > 0)
+		ncpy = n;
+	while (ncpy)
 	{
-		res[i] = n % 10 + '0';
-		i++;
-		n_cpy = n_cpy / 10;
+		len--;
+		res[len] = ncpy % 10 + '0';
+		ncpy = ncpy / 10;
 	}
-	res[i] = '\0';
 	return (res);
 }

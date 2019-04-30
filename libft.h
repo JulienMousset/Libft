@@ -6,7 +6,7 @@
 /*   By: jmousset <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 12:33:38 by jmousset          #+#    #+#             */
-/*   Updated: 2019/04/08 14:46:18 by jmousset         ###   ########.fr       */
+/*   Updated: 2019/04/29 16:36:12 by jmousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,9 @@ void				ft_lstdel(t_list **alst, void (*del)(void*, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+void				ft_swap(int *a, int *b);
+int					*ft_range(int min, int max);
+unsigned int		ft_strlcpy(char *dest, char *src, unsigned int size);
+int					ft_str_is_lowercase(char *str);
+int					ft_str_is_uppercase(char *str);
 #endif

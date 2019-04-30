@@ -6,7 +6,7 @@
 /*   By: jmousset <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 13:56:01 by jmousset          #+#    #+#             */
-/*   Updated: 2019/04/25 15:53:30 by jmousset         ###   ########.fr       */
+/*   Updated: 2019/04/26 15:56:20 by jmousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ static char	*ft_copy_words(char const *s, char c)
 	char	*dst;
 
 	i = 0;
-	while (s[i] != c)
+	while (s[i] && s[i] != c)
 		i++;
 	if (!(dst = (char *)malloc(sizeof(char) * (i + 1))))
 		return (NULL);
 	i = 0;
-	while (s[i] != c)
+	while (s[i] && s[i] != c)
 	{
 		dst[i] = s[i];
 		i++;
@@ -61,14 +61,15 @@ char		**ft_strsplit(char const *s, char c)
 
 	i = 0;
 	j = 0;
+	if (s == NULL)
+		return (NULL);
 	if (!(res = (char **)malloc(sizeof(char *) * (ft_count_words(s, c) + 1))))
 		return (NULL);
 	while (s[i])
 	{
 		if (s[i] != c)
 		{
-			if (!(res[j] = ft_copy_words(s + i, c)))
-				return (NULL);
+			res[j] = ft_copy_words(s + i, c);
 			while (s[i] && s[i] != c)
 				i++;
 			j++;

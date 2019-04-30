@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmousset <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/10 14:02:17 by jmousset          #+#    #+#             */
-/*   Updated: 2019/04/29 13:37:46 by jmousset         ###   ########.fr       */
+/*   Created: 2019/04/29 16:33:58 by jmousset          #+#    #+#             */
+/*   Updated: 2019/04/29 16:35:49 by jmousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+int		ft_str_is_uppercase(char *str)
 {
-	while (*alst)
+	int		i;
+
+	i = 0;
+	while (str[i])
 	{
-		del((*alst)->content, (*alst)->content_size);
-		free(*alst);
-		*alst = (*alst)->next;
+		if (str[i] < 'A' || str[i] > 'Z')
+			return (0);
+		i++;
 	}
-	*alst = NULL;
+	return (1);
 }
