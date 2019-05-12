@@ -1,6 +1,6 @@
 # Libft
 
-C library regrouping usual functions. Some of these are standard ones that we have to re-write to better understand, learn and use them.
+C library regrouping usual functions. Some of these are standard ones that we have to re-write in order to better understand, learn and use them.
 
 ## How to use
 
