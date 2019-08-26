@@ -6,7 +6,7 @@
 /*   By: jmousset <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 12:33:38 by jmousset          #+#    #+#             */
-/*   Updated: 2019/04/29 16:36:12 by jmousset         ###   ########.fr       */
+/*   Updated: 2019/08/26 10:51:29 by jmousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
+
+# define BUFF_SIZE 32
+# define MAX_FD 1024
 
 typedef	struct		s_list
 {
@@ -88,4 +91,5 @@ int					*ft_range(int min, int max);
 unsigned int		ft_strlcpy(char *dest, char *src, unsigned int size);
 int					ft_str_is_lowercase(char *str);
 int					ft_str_is_uppercase(char *str);
+int					get_next_line(const int fd, char **line);
 #endif
